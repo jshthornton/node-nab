@@ -6,27 +6,44 @@
 		opts = $.extend({
 			//dest
 			prefix: '$',
-			jquery: true
+			key: 'nab',
+			jquery: true,
+			multiple: true
 		}, opts);
 
 		return this.each(function() {
 			var $root = $(this),
-				$nodes = $('[data-nab]', $root);
+				$nodes = $('[data-' + opts.key + ']', $root);
 
-			$nodes = $root.filter('[data-nab]').add($nodes);
+			$nodes = $root.filter('[data-' + opts.key + ']').add($nodes);
 			if(!$nodes.length) {
 				return;
 			}
 
 			$nodes.each(function(index, node) {
 				var $node = $(node),
-					nabName = $node.data('nab'),
-					propName = ((opts.prefix) ? opts.prefix : '') + nabName;
+					nabName = $node.data(opts.key),
+					propName = ((opts.prefix) ? opts.prefix : '') + nabName,
+					dest = opts.dest,
+					prop = dest[propName];
 
 				if(opts.jquery === true) {
-					opts.dest[propName] = $node;
+					if(opts.multiple === true && prop && typeof prop.jquery !== 'undefined') {
+						prop.add($node);
+					} else {
+						prop = $node;
+					}
 				} else {
-					opts.dest[propName] = node;
+					if(opts.multiple === true && prop) {
+						if($.isArray(prop)) {
+							prop.push(node);
+						} else {
+							dest[propName] = [prop];
+							prop = dest[propName];
+						}
+					} else {
+						prop = node;
+					}
 				}
 			});
 		});
