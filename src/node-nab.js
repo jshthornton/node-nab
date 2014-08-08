@@ -31,7 +31,7 @@
 					if(opts.multiple === true && prop && typeof prop.jquery !== 'undefined') {
 						prop.add($node);
 					} else {
-						prop = $node;
+						dest[propName] = $node;
 					}
 				} else {
 					if(opts.multiple === true && prop) {
@@ -42,7 +42,7 @@
 							prop = dest[propName];
 						}
 					} else {
-						prop = node;
+						dest[propName] = node;
 					}
 				}
 			});
