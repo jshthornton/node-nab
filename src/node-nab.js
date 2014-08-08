@@ -34,7 +34,7 @@
 						dest[propName] = $node;
 					}
 				} else {
-					if(opts.multiple === true && prop) {
+					if(opts.multiple === true && prop && typeof prop.nodeName !== 'undefined') {
 						if($.isArray(prop)) {
 							prop.push(node);
 						} else {
