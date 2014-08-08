@@ -52,3 +52,16 @@ Options
 | `jquery` | `true` | Whether the elements found should be set as HTMLElements or as a jquery object. Accepts bool |
 | `multiple` | `true` | Whether the previous property should be overwritten with a later found element, or compiled into an array. Accepts bool |
 
+Dependencies
+------------
+The only 100% requirement is jquery. But require can be also be used.
+
+As for the jquery minimum version. The tested version is `2.1.1` - However it will work with the following methods supported:
+- `add` => v1
+- `$.extend` => v1
+- `each` => v1
+- `filter` => v1
+- `data` => v1.2.3
+- `jquery` => v1
+
+Overall lowest support of v1.2.3
