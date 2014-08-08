@@ -7,7 +7,7 @@ Node Nab aims to eliminate this issue for you. By simply including node nab you 
 
 Usage
 -----
-Non-AMD: `<script src="../src/node-nab.js"></script>`
+Non-AMD: `<script src="path/to/node-nab.js"></script>`
 
 AMD: `define([path/to/node-nab', function() {});`
 
