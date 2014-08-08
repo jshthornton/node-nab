@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+</head>
+<body>
+
+	<div id="test">
+		<span data-nab="holder"></span>
+	</div>
+	
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="../src/node-nab.js"></script>
+	<script>
+		(function() {
+			var opts = {
+				dest: {
+
+				}
+			};
+
+			$('#test').nodeNab(opts);
+
+			console.log(opts);
+		}());
+	</script>
+</body>
+</html>
