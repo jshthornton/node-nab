@@ -29,7 +29,7 @@
 
 				if(opts.jquery === true) {
 					if(opts.multiple === true && prop && typeof prop.jquery !== 'undefined') {
-						prop.add($node);
+						dest[propName] = prop.add($node);
 					} else {
 						dest[propName] = $node;
 					}
